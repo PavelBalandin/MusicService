@@ -1,8 +1,9 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-       Options Indexes FollowSymLinks
-    	AllowOverride All
-    	Require all granted
+#       Options Indexes FollowSymLinks
+#    	AllowOverride All
+#    	Require all granted
+        Options -MultiViews -Indexes
     </IfModule>
 
     RewriteEngine On

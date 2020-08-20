@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{{route('artists')}}">Artists</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Playlists</a>
+                    <a class="nav-link" href="{{route('playlists')}}">Playlists</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Login</a>

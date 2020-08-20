@@ -7,8 +7,11 @@
                 <div class="title-author"><a v-bind:href="href_i">{{music.artist.name}}</a></div>
             </div>
         </div>
+        <div>
+        <img v-bind:src=icon_plus alt="plus">
         <a v-bind:href=src download><img class="music-time" v-bind:src=icon_download alt="Start"></a>
 <!--        <div class="music-time">{{music.audio.duration | minutes}}</div>-->
+        </div>
     </div>
 </template>
 
@@ -29,6 +32,7 @@
             return {
                 icon_src: '../assets/play.png',
                 icon_download: '../assets/download.png',
+                icon_plus: '../assets/plus.png',
                 src: '../' + this.music.path,
 
                 isplay: false,

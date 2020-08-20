@@ -56,6 +56,7 @@
 <style scoped>
     .player-z {
         background-color: #424242;
+        color: white;
     }
     .player {
         padding: 0 20px;

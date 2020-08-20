@@ -32,7 +32,7 @@
                 index: 0,
                 previndex: 0,
                 isplay: false,
-                volume_level: 0.5,
+                volume_level: 1,
                 seek: 0,
                 filter: '',
             }
@@ -40,7 +40,7 @@
 
         created() {
             this.playlist.forEach((track) => {
-                track.audio = new Audio('../'+track.path);
+                track.audio = new Audio('../audio/'+track.path);
             })
 
         },
@@ -113,7 +113,7 @@
     }
 </script>
 
-<style>
+<style scoped>
 
     body {
         background-color: #303030;

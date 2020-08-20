@@ -2,17 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Artist;
+use App\Services\ArtistService;
 
 class ArtistController extends Controller
 {
-    public function getAll(){
-        $artist = new Artist();
-        return view('artists', ['data' => $artist->all()]);
+    /**
+     * @var ArtistService
+     */
+    private $artistService;
+
+    /**
+     * ArtistController constructor.
+     *
+     * @param ArtistService $artistService
+     */
+    public function __construct(ArtistService $artistService)
+    {
+        $this->artistService = $artistService;
     }
 
-    public function getArtistMusic(){
-        $artist = new Artist();
-        return view('artists', ['data' => $artist->all()]);
+    public function getAll()
+    {
+        $artists = $this->artistService->getAllArtists();
+        return view('artists', compact('artists'));
     }
+
 }

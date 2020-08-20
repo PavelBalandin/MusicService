@@ -1,0 +1,84 @@
+body {
+    background-color: #303030;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans HK', sans-serif;
+    color: white;
+}
+
+hr{
+    padding: 0;
+    margin: 0;
+}
+
+/*----- Upload -----*/
+.upload-container{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 1em;
+
+}
+.upload {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+}
+.upload p{
+    color: white;
+    font-size: 1.5em;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.upload input{
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid #35b187;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 10px 10px;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.upload input :focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+}
+.upload button{
+    margin: 20px 0 0 0 !important;
+}
+.upload .massage{
+    margin: 20px 0 0 0 !important;
+}
+
+.upload input[type="file"]{
+    display: none;
+}
+
+.upload label{
+    color: #35b187;
+    height: 40px;
+    width: 100%;
+    /*background-color: #35b187;*/
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: 1px solid #35b187;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upload label:hover{
+    background-color: #35b187;
+    color: white;
+    transition: 0.3s;
+}
+
+

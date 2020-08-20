@@ -2,35 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\MusicService;
 use Illuminate\Http\Request;
-use App\Music;
+
 
 class MusicController extends Controller
 {
-    public function getAll(){
-        $music = new Music();
-        $data  = $music->all();
-        self::addAttributes($data);
+    /**
+     * @var MusicService
+     */
+    private $musicService;
+
+    /**
+     * MusicController constructor.
+     * @param MusicService $musicService
+     */
+    public function __construct(MusicService $musicService)
+    {
+        $this->musicService = $musicService;
+    }
+
+    public function getAll()
+    {
+        $data = $this->musicService->getAllMusic();
         return view('home', compact('data'));
     }
 
-    public function findByName(Request $request){
-        $music = new Music();
-        $data  = $music->where('name', 'like', '%'.$request->input('name').'%')->get();
-        self::addAttributes($data);
+    public function getByName(Request $request)
+    {
+        $data = $this->musicService->getMusicByName($request->input('name'));
         return view('home', compact('data'));
     }
 
-    public function findById($id){
-        $music = new Music();
-        $data  = $music->where('artist_id', '=', $id)->get();
-        self::addAttributes($data);
+    public function getByArtistId($id)
+    {
+        $data = $this->musicService->getMusicByArtistId($id);
         return view('artistMusic', compact('data'));
     }
 
-    private function addAttributes(&$data){
-        foreach ($data as $track){
-            $track['artist'] = $track->artist;
-        }
+    public function getByPlaylistId($id)
+    {
+        $data = $this->musicService->getMusicByPlaylistId($id);
+        return view('artistMusic', compact('data'));
     }
+
+    public function upload(Request $request)
+    {
+        $this->musicService->saveFile($request->file('music'));
+        return view('musicLoad', ['massage' => 'Music has been added']);
+    }
+
 }
